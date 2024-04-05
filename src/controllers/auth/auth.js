@@ -29,10 +29,6 @@ const login = async (req, res, next) => {
             username: user.username,
             token:user.token
         }
-        // res.json({
-        //     code: 200,
-        //     data: result
-        // })
         res.status(200).json(result)
 
     } catch (error) {
