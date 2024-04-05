@@ -2,7 +2,7 @@
 
 ## Instalasi
 
-1. copy repository ini dengan dengan cara https://github.com/tyassusanto/bts.id/blob/master/src/routes/general/generalRoutes.js
+1. copy repository ini dengan dengan cara `git clone https://github.com/tyassusanto/bts.id`
 2. npm install 
 3. jalankan aplikasi dengan cara mengetikan command: npm run dev
 
