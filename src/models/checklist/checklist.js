@@ -40,20 +40,18 @@ const deleteGroupById = (id) => {
 
 }
 
-
-
-const addItemlist = (userData) => {
+const addItemlist = (id, itemData) => {
     return new Promise((resolve, reject) => {
-        const query = `INSERT INTO checklist_group WHERE checklist_group_id =? SET ?`
-        connection.query(query, userData, (error, result) => {
+        const query = `INSERT INTO checklist_item SET ?`;
+        connection.query(query, itemData, (error, result) => {
             if (!error) {
-                resolve(result)
+                resolve(result);
             } else {
-                reject(error)
+                reject(error);
             }
-        })
-    })
-}
+        });
+    });
+};
 
 module.exports = {
     addGroupList,

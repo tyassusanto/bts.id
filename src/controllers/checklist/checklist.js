@@ -48,7 +48,31 @@ const deleteGroupById = async (req, res, next) => {
             message: 'Group deleted successfully'
         });
     } catch (error) {
-        console.error("Error while deleting group:", error);
+        console.error("Error while deleting group:", error)
+        res.status(500).json({
+            error: 'Internal Server Error'
+        });
+    }
+};
+
+const addItem = async (req, res, next) => {
+    try {
+        const id = req.params.id
+        const { itemName } = req.body
+        const itemId = uuid()
+
+        const itemData = {
+            checklist_item_id: itemId,
+            group_id: id,
+            item_name: itemName,
+            created_at: new Date()
+        };
+
+        await modelChecklist.addItemlist(id, itemData)
+
+        res.status(200).json(itemData)
+    } catch (error) {
+        console.error("Error while adding item:", error)
         res.status(500).json({
             error: 'Internal Server Error'
         });
@@ -60,5 +84,6 @@ const deleteGroupById = async (req, res, next) => {
 module.exports = {
     addGroup,
     getAllGroup,
-    deleteGroupById
+    deleteGroupById,
+    addItem
 }

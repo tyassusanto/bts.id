@@ -13,4 +13,7 @@ route.post(`/checklist`, middlewere.verifToken, checklistController.addGroup)
 route.get(`/checklist`, middlewere.verifToken, checklistController.getAllGroup)
 route.delete(`/checklist/:id`, middlewere.verifToken, checklistController.deleteGroupById)
 
+// Checklist Item Routes
+route.post(`/checklist/:id`, checklistController.addItem)
+
 module.exports = route
