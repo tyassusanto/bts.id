@@ -39,7 +39,6 @@ const deleteGroupById = async (req, res, next) => {
         const result = await modelChecklist.deleteGroupById(id);
 
         if (result.affectedRows === 0) {
-            // If no rows were affected, it means the group with the given id does not exist
             return res.status(404).json({
                 error: 'Group not found'
             });
